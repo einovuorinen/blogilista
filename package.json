@@ -1,34 +1,28 @@
 {
-  "name": "blogilista",
+  "name": "bloglist-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
-    "start": "cross-env NODE_ENV=production node index.js",
-    "watch": "cross-env NODE_ENV=development nodemon index.js"
+    "build:ui": "rm -rf build && cd ../bloglist-frontend && npm run build && cp -r build ../blogilista",
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "jest . --verbose",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand"
   },
-  "author": "Eino Vuorinen",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cross-env": "^6.0.3",
-    "jest": "^24.9.0",
-    "nodemon": "^1.19.4",
-    "supertest": "^4.0.2"
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.9",
+    "supertest": "^3.4.1"
   },
   "dependencies": {
-    "bcrypt": "^3.0.6",
-    "body-parser": "^1.19.0",
+    "bcrypt": "^3.0.3",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.7.10",
-    "mongoose-unique-validator": "^2.0.3",
-    "run": "^1.4.0",
-    "watch": "^1.0.2"
-  },
-  "jest": {
-    "testEnvironment": "node"
+    "dotenv": "^6.2.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.5",
+    "mongoose-unique-validator": "^2.0.2"
   }
 }
